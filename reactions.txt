@@ -1,0 +1,174 @@
+Hydrolysis
+Mn(COOH)2 + H2O <-> Mn(COOH)(OH) + HCOOH
+Mn(Cl)2 + H2O <-> Mn(Cl)(OH) + HCl
+Mn(NO3)2 + H2O <-> Mn(NO3)(OH) + HNO3
+Mn(OAc)2 + H2O <-> Mn(OAc)(OH) + HOAc
+Mn(OH)2 + H2O <-> Mn(OH)(OH) + HOH
+Mn(COOH)(OH) + H2O <-> Mn(OH)2 + HCOOH
+Mn(Cl)(OH) + H2O <-> Mn(OH)2 + HCl
+Mn(NO3)(OH) + H2O <-> Mn(OH)2 + HNO3
+Mn(OAc)(OH) + H2O <-> Mn(OH)2 + HOAc
+Mn(OH)(OH) + H2O <-> Mn(OH)2 + HOH
+Ligand Exchange
+Mn(COOH)2 + H(COOH) <-> Mn(COOH)(COOH) + HCOOH
+Mn(COOH)2 + H(Cl) <-> Mn(COOH)(Cl) + HCOOH
+Mn(COOH)2 + H(NO3) <-> Mn(COOH)(NO3) + HCOOH
+Mn(COOH)2 + H(OAc) <-> Mn(COOH)(OAc) + HCOOH
+Mn(COOH)2 + H(OH) <-> Mn(COOH)(OH) + HCOOH
+Mn(Cl)2 + H(COOH) <-> Mn(Cl)(COOH) + HCl
+Mn(Cl)2 + H(Cl) <-> Mn(Cl)(Cl) + HCl
+Mn(Cl)2 + H(NO3) <-> Mn(Cl)(NO3) + HCl
+Mn(Cl)2 + H(OAc) <-> Mn(Cl)(OAc) + HCl
+Mn(Cl)2 + H(OH) <-> Mn(Cl)(OH) + HCl
+Mn(NO3)2 + H(COOH) <-> Mn(NO3)(COOH) + HNO3
+Mn(NO3)2 + H(Cl) <-> Mn(NO3)(Cl) + HNO3
+Mn(NO3)2 + H(NO3) <-> Mn(NO3)(NO3) + HNO3
+Mn(NO3)2 + H(OAc) <-> Mn(NO3)(OAc) + HNO3
+Mn(NO3)2 + H(OH) <-> Mn(NO3)(OH) + HNO3
+Mn(OAc)2 + H(COOH) <-> Mn(OAc)(COOH) + HOAc
+Mn(OAc)2 + H(Cl) <-> Mn(OAc)(Cl) + HOAc
+Mn(OAc)2 + H(NO3) <-> Mn(OAc)(NO3) + HOAc
+Mn(OAc)2 + H(OAc) <-> Mn(OAc)(OAc) + HOAc
+Mn(OAc)2 + H(OH) <-> Mn(OAc)(OH) + HOAc
+Mn(OH)2 + H(COOH) <-> Mn(OH)(COOH) + HOH
+Mn(OH)2 + H(Cl) <-> Mn(OH)(Cl) + HOH
+Mn(OH)2 + H(NO3) <-> Mn(OH)(NO3) + HOH
+Mn(OH)2 + H(OAc) <-> Mn(OH)(OAc) + HOH
+Mn(OH)2 + H(OH) <-> Mn(OH)(OH) + HOH
+Mn(COOH)(COOH) + H(COOH) <-> Mn(COOH)2 + HCOOH
+Mn(COOH)(Cl) + H(Cl) <-> Mn(Cl)2 + HCOOH
+Mn(COOH)(NO3) + H(NO3) <-> Mn(NO3)2 + HCOOH
+Mn(COOH)(OAc) + H(OAc) <-> Mn(OAc)2 + HCOOH
+Mn(COOH)(OH) + H(OH) <-> Mn(OH)2 + HCOOH
+Mn(Cl)(COOH) + H(COOH) <-> Mn(COOH)2 + HCl
+Mn(Cl)(Cl) + H(Cl) <-> Mn(Cl)2 + HCl
+Mn(Cl)(NO3) + H(NO3) <-> Mn(NO3)2 + HCl
+Mn(Cl)(OAc) + H(OAc) <-> Mn(OAc)2 + HCl
+Mn(Cl)(OH) + H(OH) <-> Mn(OH)2 + HCl
+Mn(NO3)(COOH) + H(COOH) <-> Mn(COOH)2 + HNO3
+Mn(NO3)(Cl) + H(Cl) <-> Mn(Cl)2 + HNO3
+Mn(NO3)(NO3) + H(NO3) <-> Mn(NO3)2 + HNO3
+Mn(NO3)(OAc) + H(OAc) <-> Mn(OAc)2 + HNO3
+Mn(NO3)(OH) + H(OH) <-> Mn(OH)2 + HNO3
+Mn(OAc)(COOH) + H(COOH) <-> Mn(COOH)2 + HOAc
+Mn(OAc)(Cl) + H(Cl) <-> Mn(Cl)2 + HOAc
+Mn(OAc)(NO3) + H(NO3) <-> Mn(NO3)2 + HOAc
+Mn(OAc)(OAc) + H(OAc) <-> Mn(OAc)2 + HOAc
+Mn(OAc)(OH) + H(OH) <-> Mn(OH)2 + HOAc
+Mn(OH)(COOH) + H(COOH) <-> Mn(COOH)2 + HOH
+Mn(OH)(Cl) + H(Cl) <-> Mn(Cl)2 + HOH
+Mn(OH)(NO3) + H(NO3) <-> Mn(NO3)2 + HOH
+Mn(OH)(OAc) + H(OAc) <-> Mn(OAc)2 + HOH
+Mn(OH)(OH) + H(OH) <-> Mn(OH)2 + HOH
+OAm reactions
+OAm + HCOOH <-> OAmH+ + COOH-
+OAm + HCl <-> OAmH+ + Cl-
+OAm + HNO3 <-> OAmH+ + NO3-
+OAm + HOAc <-> OAmH+ + OAc-
+OAm + HOH <-> OAmH+ + OH-
+Coordinate Covalent Bond
+Mn(COOH)2 + 4H2O <-> Mn(COOH)2(OH2)4
+Mn(Cl)2 + 4H2O <-> Mn(Cl)2(OH2)4
+Mn(NO3)2 + 4H2O <-> Mn(NO3)2(OH2)4
+Mn(OAc)2 + 4H2O <-> Mn(OAc)2(OH2)4
+Mn(OH)2 + 4H2O <-> Mn(OH)2(OH2)4
+Mn(COOH)2 + 4OAm <-> Mn(COOH)2(OH2)4
+Mn(Cl)2 + 4OAm <-> Mn(Cl)2(OH2)4
+Mn(NO3)2 + 4OAm <-> Mn(NO3)2(OH2)4
+Mn(OAc)2 + 4OAm <-> Mn(OAc)2(OH2)4
+Mn(OH)2 + 4OAm <-> Mn(OH)2(OH2)4
+Mn(COOH)(COOH) + 4H2O <-> Mn(COOH)(COOH)(OH2)4
+Mn(COOH)(Cl) + 4H2O <-> Mn(COOH)(Cl)(OH2)4
+Mn(COOH)(NO3) + 4H2O <-> Mn(COOH)(NO3)(OH2)4
+Mn(COOH)(OAc) + 4H2O <-> Mn(COOH)(OAc)(OH2)4
+Mn(COOH)(OH) + 4H2O <-> Mn(COOH)(OH)(OH2)4
+Mn(Cl)(COOH) + 4H2O <-> Mn(Cl)(COOH)(OH2)4
+Mn(Cl)(Cl) + 4H2O <-> Mn(Cl)(Cl)(OH2)4
+Mn(Cl)(NO3) + 4H2O <-> Mn(Cl)(NO3)(OH2)4
+Mn(Cl)(OAc) + 4H2O <-> Mn(Cl)(OAc)(OH2)4
+Mn(Cl)(OH) + 4H2O <-> Mn(Cl)(OH)(OH2)4
+Mn(NO3)(COOH) + 4H2O <-> Mn(NO3)(COOH)(OH2)4
+Mn(NO3)(Cl) + 4H2O <-> Mn(NO3)(Cl)(OH2)4
+Mn(NO3)(NO3) + 4H2O <-> Mn(NO3)(NO3)(OH2)4
+Mn(NO3)(OAc) + 4H2O <-> Mn(NO3)(OAc)(OH2)4
+Mn(NO3)(OH) + 4H2O <-> Mn(NO3)(OH)(OH2)4
+Mn(OAc)(COOH) + 4H2O <-> Mn(OAc)(COOH)(OH2)4
+Mn(OAc)(Cl) + 4H2O <-> Mn(OAc)(Cl)(OH2)4
+Mn(OAc)(NO3) + 4H2O <-> Mn(OAc)(NO3)(OH2)4
+Mn(OAc)(OAc) + 4H2O <-> Mn(OAc)(OAc)(OH2)4
+Mn(OAc)(OH) + 4H2O <-> Mn(OAc)(OH)(OH2)4
+Mn(OH)(COOH) + 4H2O <-> Mn(OH)(COOH)(OH2)4
+Mn(OH)(Cl) + 4H2O <-> Mn(OH)(Cl)(OH2)4
+Mn(OH)(NO3) + 4H2O <-> Mn(OH)(NO3)(OH2)4
+Mn(OH)(OAc) + 4H2O <-> Mn(OH)(OAc)(OH2)4
+Mn(OH)(OH) + 4H2O <-> Mn(OH)(OH)(OH2)4
+Mn(COOH)(COOH) + 4OAm <-> Mn(COOH)(COOH)(OAm)4
+Mn(COOH)(Cl) + 4OAm <-> Mn(COOH)(Cl)(OAm)4
+Mn(COOH)(NO3) + 4OAm <-> Mn(COOH)(NO3)(OAm)4
+Mn(COOH)(OAc) + 4OAm <-> Mn(COOH)(OAc)(OAm)4
+Mn(COOH)(OH) + 4OAm <-> Mn(COOH)(OH)(OAm)4
+Mn(Cl)(COOH) + 4OAm <-> Mn(Cl)(COOH)(OAm)4
+Mn(Cl)(Cl) + 4OAm <-> Mn(Cl)(Cl)(OAm)4
+Mn(Cl)(NO3) + 4OAm <-> Mn(Cl)(NO3)(OAm)4
+Mn(Cl)(OAc) + 4OAm <-> Mn(Cl)(OAc)(OAm)4
+Mn(Cl)(OH) + 4OAm <-> Mn(Cl)(OH)(OAm)4
+Mn(NO3)(COOH) + 4OAm <-> Mn(NO3)(COOH)(OAm)4
+Mn(NO3)(Cl) + 4OAm <-> Mn(NO3)(Cl)(OAm)4
+Mn(NO3)(NO3) + 4OAm <-> Mn(NO3)(NO3)(OAm)4
+Mn(NO3)(OAc) + 4OAm <-> Mn(NO3)(OAc)(OAm)4
+Mn(NO3)(OH) + 4OAm <-> Mn(NO3)(OH)(OAm)4
+Mn(OAc)(COOH) + 4OAm <-> Mn(OAc)(COOH)(OAm)4
+Mn(OAc)(Cl) + 4OAm <-> Mn(OAc)(Cl)(OAm)4
+Mn(OAc)(NO3) + 4OAm <-> Mn(OAc)(NO3)(OAm)4
+Mn(OAc)(OAc) + 4OAm <-> Mn(OAc)(OAc)(OAm)4
+Mn(OAc)(OH) + 4OAm <-> Mn(OAc)(OH)(OAm)4
+Mn(OH)(COOH) + 4OAm <-> Mn(OH)(COOH)(OAm)4
+Mn(OH)(Cl) + 4OAm <-> Mn(OH)(Cl)(OAm)4
+Mn(OH)(NO3) + 4OAm <-> Mn(OH)(NO3)(OAm)4
+Mn(OH)(OAc) + 4OAm <-> Mn(OH)(OAc)(OAm)4
+Mn(OH)(OH) + 4OAm <-> Mn(OH)(OH)(OAm)4
+Olation
+*-(COOH) + Mn-OH <->*-O-Mn + H(COOH)
+*-(Cl) + Mn-OH <->*-O-Mn + H(Cl)
+*-(NO3) + Mn-OH <->*-O-Mn + H(NO3)
+*-(OAc) + Mn-OH <->*-O-Mn + H(OAc)
+*-(OH) + Mn-OH <->*-O-Mn + H(OH)
+*=O- + Mn-OH <->*-O-Mn + OH-
+*-OH2+ + Mn-OH <->*-O-Mn + H3O+
+Oxolation
+*-(COOH) + Mn-OH2 <->*-OH-Mn + H(COOH)
+*-(Cl) + Mn-OH2 <->*-OH-Mn + H(Cl)
+*-(NO3) + Mn-OH2 <->*-OH-Mn + H(NO3)
+*-(OAc) + Mn-OH2 <->*-OH-Mn + H(OAc)
+*-(OH) + Mn-OH2 <->*-OH-Mn + H(OH)
+*=O- + Mn-OH2 <->*-OH-Mn + OH-
+*-OH2+ + Mn-OH2 <->*-OH-Mn + H3O+
+Never happens
+*-(COOH) + Mn=O- <->*-O-Mn + O-2
+*-(Cl) + Mn=O- <->*-O-Mn + O-2
+*-(NO3) + Mn=O- <->*-O-Mn + O-2
+*-(OAc) + Mn=O- <->*-O-Mn + O-2
+*-(OH) + Mn=O- <->*-O-Mn + O-2
+*=O- + Mn=O- <->*-O-Mn + O-2
+*-OH2+ + Mn=O- <->*-O-Mn + O-2
+Capping
+*-OH+H(COOH) <-> *-(COOH) + H2O
+*-OH2+ + H(COOH) <-> *-(COOH) + H3O+
+*=O-+H(COOH) <-> *-(COOH) + OH-
+*-OH+H(Cl) <-> *-(Cl) + H2O
+*-OH2+ + H(Cl) <-> *-(Cl) + H3O+
+*=O-+H(Cl) <-> *-(Cl) + OH-
+*-OH+H(NO3) <-> *-(NO3) + H2O
+*-OH2+ + H(NO3) <-> *-(NO3) + H3O+
+*=O-+H(NO3) <-> *-(NO3) + OH-
+*-OH+H(OAc) <-> *-(OAc) + H2O
+*-OH2+ + H(OAc) <-> *-(OAc) + H3O+
+*=O-+H(OAc) <-> *-(OAc) + OH-
+*-OH+H(OH) <-> *-(OH) + H2O
+*-OH2+ + H(OH) <-> *-(OH) + H3O+
+*=O-+H(OH) <-> *-(OH) + OH-
+*-OAm+ + H(COOH) <-> *-OAmH + COOH-
+*-OAm+ + H(Cl) <-> *-OAmH + Cl-
+*-OAm+ + H(NO3) <-> *-OAmH + NO3-
+*-OAm+ + H(OAc) <-> *-OAmH + OAc-
+*-OAm+ + H(OH) <-> *-OAmH + OH-
