@@ -2,7 +2,7 @@ s = ''
 
 # hydrolysis
 s += 'Hydrolysis\n'
-X = ['COOH','Cl','NO3','OAc','OH']
+X = ['COOH','Cl','NO3','OAc']
 for x in X:
     s += f"Mn({x})2 + H2O <-> Mn({x})(OH) + H{x}\n"
 
@@ -13,13 +13,11 @@ for x in X:
 s += 'Ligand Exchange\n'
 for x in X:
     for y in X:
-        s += f"Mn({x})2 + H({y}) <-> Mn({x})({y}) + H{x}\n"
+        if x != y :
+          s += f"Mn({x})2 + H({y}) <-> Mn({x})({y}) + H({x})\n"
 
-for x in X:
-    for y in X:
-        s += f"Mn({x})({y}) + H({y}) <-> Mn({y})2 + H{x}\n"
-
-s += 'OAm reactions\n'
+# dative bonds
+s += 'Dative bonds\n'
 
 for x in X:
     s += f"OAm + H{x} <-> OAmH+ + {x}-\n"
@@ -39,19 +37,20 @@ for x in X:
     for y in X:
         s += f"Mn({x})({y}) + 4OAm <-> Mn({x})({y})(OAm)4\n"
 
+#condensation
 s += 'Olation\n'
-for x in X:
-    s += f"*-({x}) + Mn-OH <->*-O-Mn + H({x})\n"
+for x in ['O-', 'OH', 'OH2+']:
+    s += f"*-({x}) + Mn-OH2 <->*-OH-Mn + H({x})\n"
 
-s += f"*=O- + Mn-OH <->*-O-Mn + OH-\n"
-s += f"*-OH2+ + Mn-OH <->*-O-Mn + H3O+\n"
-
-s += 'Oxolation\n'
 for x in X:
     s += f"*-({x}) + Mn-OH2 <->*-OH-Mn + H({x})\n"
 
-s += f"*=O- + Mn-OH2 <->*-OH-Mn + OH-\n"
-s += f"*-OH2+ + Mn-OH2 <->*-OH-Mn + H3O+\n"
+s += 'Oxolation\n'
+for x in ['O-', 'OH', 'OH2']:
+    s += f"*-({x}) + Mn-OH2 <->*-OH-Mn + H({x})\n"
+
+for x in X:
+    s += f"*-({x}) + Mn-OH <->*-O-Mn + H({x})\n"
 
 s += 'Never happens\n'
 for x in X:
