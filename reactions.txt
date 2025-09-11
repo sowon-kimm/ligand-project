@@ -75,9 +75,9 @@ Olation
 *-(NO3) + Mn-OH2 <->*-OH-Mn + H(NO3)
 *-(OAc) + Mn-OH2 <->*-OH-Mn + H(OAc)
 Oxolation
-*-(O-) + Mn-OH2 <->*-OH-Mn + H(O-)
-*-(OH) + Mn-OH2 <->*-OH-Mn + H(OH)
-*-(OH2) + Mn-OH2 <->*-OH-Mn + H(OH2)
+*-(O-) + Mn-OH <->*-O-Mn + H(O-)
+*-(OH) + Mn-OH <->*-O-Mn + H(OH)
+*-(OH2) + Mn-OH <->*-O-Mn + H(OH2)
 *-(COOH) + Mn-OH <->*-O-Mn + H(COOH)
 *-(Cl) + Mn-OH <->*-O-Mn + H(Cl)
 *-(NO3) + Mn-OH <->*-O-Mn + H(NO3)

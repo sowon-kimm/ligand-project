@@ -47,7 +47,7 @@ for x in X:
 
 s += 'Oxolation\n'
 for x in ['O-', 'OH', 'OH2']:
-    s += f"*-({x}) + Mn-OH2 <->*-OH-Mn + H({x})\n"
+    s += f"*-({x}) + Mn-OH <->*-O-Mn + H({x})\n"
 
 for x in X:
     s += f"*-({x}) + Mn-OH <->*-O-Mn + H({x})\n"
