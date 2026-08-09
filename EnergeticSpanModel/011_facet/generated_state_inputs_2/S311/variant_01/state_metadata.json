@@ -1,0 +1,17 @@
+{
+  "state": "S311",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2,
+    3
+  ],
+  "added_o_count": 5,
+  "added_h_count": 5,
+  "removed_slab_h_indices": [
+    36,
+    38
+  ],
+  "formula": "H11Mn15O25",
+  "atom_count": 51
+}

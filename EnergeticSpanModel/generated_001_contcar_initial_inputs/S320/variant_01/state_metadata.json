@@ -1,0 +1,144 @@
+{
+  "state": "S(3, 2, 0)",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2,
+    3
+  ],
+  "added_o_count": 4,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [],
+  "formula": "H4Mn15O21",
+  "atom_count": 40,
+  "source_contcar": "generated_001_contcar/contcar_s320_01.vasp",
+  "bottom_fix_z_cutoff": 14.0,
+  "fixed_atom_count": 15,
+  "fixed_atom_indices_1based": [
+    1,
+    2,
+    6,
+    8,
+    9,
+    12,
+    17,
+    18,
+    20,
+    21,
+    24,
+    26,
+    28,
+    31,
+    37
+  ],
+  "magmom_source_outcar": "generated_001_contcar/OUTCAR_322",
+  "magmom_assignment": "position_match_to_OUTCAR_322_Mn_sites",
+  "magmom_matches": [
+    {
+      "atom_index_1based": 1,
+      "matched_outcar_atom_index_1based": 1,
+      "matched_outcar_mn_rank_1based": 1,
+      "distance_angstrom": 0.224418,
+      "magmom": -3.8
+    },
+    {
+      "atom_index_1based": 2,
+      "matched_outcar_atom_index_1based": 2,
+      "matched_outcar_mn_rank_1based": 2,
+      "distance_angstrom": 0.207104,
+      "magmom": 3.8
+    },
+    {
+      "atom_index_1based": 3,
+      "matched_outcar_atom_index_1based": 3,
+      "matched_outcar_mn_rank_1based": 3,
+      "distance_angstrom": 0.085118,
+      "magmom": 3.8
+    },
+    {
+      "atom_index_1based": 4,
+      "matched_outcar_atom_index_1based": 4,
+      "matched_outcar_mn_rank_1based": 4,
+      "distance_angstrom": 0.145916,
+      "magmom": 3.8
+    },
+    {
+      "atom_index_1based": 5,
+      "matched_outcar_atom_index_1based": 5,
+      "matched_outcar_mn_rank_1based": 5,
+      "distance_angstrom": 0.259816,
+      "magmom": -3.8
+    },
+    {
+      "atom_index_1based": 6,
+      "matched_outcar_atom_index_1based": 6,
+      "matched_outcar_mn_rank_1based": 6,
+      "distance_angstrom": 0.210949,
+      "magmom": -3.8
+    },
+    {
+      "atom_index_1based": 7,
+      "matched_outcar_atom_index_1based": 7,
+      "matched_outcar_mn_rank_1based": 7,
+      "distance_angstrom": 0.092381,
+      "magmom": -3.8
+    },
+    {
+      "atom_index_1based": 8,
+      "matched_outcar_atom_index_1based": 8,
+      "matched_outcar_mn_rank_1based": 8,
+      "distance_angstrom": 0.206954,
+      "magmom": 3.8
+    },
+    {
+      "atom_index_1based": 9,
+      "matched_outcar_atom_index_1based": 9,
+      "matched_outcar_mn_rank_1based": 9,
+      "distance_angstrom": 0.219334,
+      "magmom": 4.4
+    },
+    {
+      "atom_index_1based": 10,
+      "matched_outcar_atom_index_1based": 10,
+      "matched_outcar_mn_rank_1based": 10,
+      "distance_angstrom": 0.11099,
+      "magmom": 4.4
+    },
+    {
+      "atom_index_1based": 11,
+      "matched_outcar_atom_index_1based": 11,
+      "matched_outcar_mn_rank_1based": 11,
+      "distance_angstrom": 0.124458,
+      "magmom": 4.4
+    },
+    {
+      "atom_index_1based": 12,
+      "matched_outcar_atom_index_1based": 12,
+      "matched_outcar_mn_rank_1based": 12,
+      "distance_angstrom": 0.208643,
+      "magmom": 4.4
+    },
+    {
+      "atom_index_1based": 13,
+      "matched_outcar_atom_index_1based": 13,
+      "matched_outcar_mn_rank_1based": 13,
+      "distance_angstrom": 0.433725,
+      "magmom": -4.4
+    },
+    {
+      "atom_index_1based": 14,
+      "matched_outcar_atom_index_1based": 14,
+      "matched_outcar_mn_rank_1based": 14,
+      "distance_angstrom": 0.277537,
+      "magmom": 3.8
+    },
+    {
+      "atom_index_1based": 15,
+      "matched_outcar_atom_index_1based": 15,
+      "matched_outcar_mn_rank_1based": 15,
+      "distance_angstrom": 0.209887,
+      "magmom": 3.8
+    }
+  ],
+  "magmom": "-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 25*0.0000"
+}

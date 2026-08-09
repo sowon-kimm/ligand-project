@@ -1,0 +1,16 @@
+{
+  "state": "S310",
+  "variant": 3,
+  "selected_sites": [
+    3,
+    1,
+    2
+  ],
+  "added_o_count": 5,
+  "added_h_count": 5,
+  "removed_slab_h_indices": [
+    45
+  ],
+  "formula": "H12Mn18O29",
+  "atom_count": 59
+}

@@ -1,0 +1,13 @@
+{
+  "state": "S(2, 1, 0)",
+  "variant": 2,
+  "selected_sites": [
+    2,
+    3
+  ],
+  "added_o_count": 3,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [],
+  "formula": "H4Mn14O20",
+  "atom_count": 38
+}

@@ -1,0 +1,82 @@
+state,variant,path,formula,atom_count,selected_sites,added_o_count,added_h_count,removed_slab_h_indices
+S000,variant_01,generated_state_inputs/S000/variant_01,H8Mn15O24,47,,0,0,
+S000,variant_02,generated_state_inputs/S000/variant_02,H8Mn15O24,47,,0,0,
+S000,variant_03,generated_state_inputs/S000/variant_03,H8Mn15O24,47,,0,0,
+S001,variant_01,generated_state_inputs/S001/variant_01,H7Mn15O24,46,,0,0,43
+S001,variant_02,generated_state_inputs/S001/variant_02,H7Mn15O24,46,,0,0,46
+S001,variant_03,generated_state_inputs/S001/variant_03,H7Mn15O24,46,,0,0,45
+S002,variant_01,generated_state_inputs/S002/variant_01,H6Mn15O24,45,,0,0,43 46
+S002,variant_02,generated_state_inputs/S002/variant_02,H6Mn15O24,45,,0,0,45 46
+S002,variant_03,generated_state_inputs/S002/variant_03,H6Mn15O24,45,,0,0,44 45
+S100,variant_01,generated_state_inputs/S100/variant_01,H10Mn16O26,52,1,2,2,
+S100,variant_02,generated_state_inputs/S100/variant_02,H10Mn16O26,52,2,2,2,
+S100,variant_03,generated_state_inputs/S100/variant_03,H10Mn16O26,52,3,2,2,
+S101,variant_01,generated_state_inputs/S101/variant_01,H9Mn16O26,51,1,2,2,43
+S101,variant_02,generated_state_inputs/S101/variant_02,H9Mn16O26,51,2,2,2,46
+S101,variant_03,generated_state_inputs/S101/variant_03,H9Mn16O26,51,3,2,2,45
+S102,variant_01,generated_state_inputs/S102/variant_01,H8Mn16O26,50,1,2,2,43 46
+S102,variant_02,generated_state_inputs/S102/variant_02,H8Mn16O26,50,2,2,2,45 46
+S102,variant_03,generated_state_inputs/S102/variant_03,H8Mn16O26,50,3,2,2,44 45
+S110,variant_01,generated_state_inputs/S110/variant_01,H8Mn16O25,49,1,1,1,43
+S110,variant_02,generated_state_inputs/S110/variant_02,H8Mn16O25,49,2,1,1,46
+S110,variant_03,generated_state_inputs/S110/variant_03,H8Mn16O25,49,3,1,1,45
+S111,variant_01,generated_state_inputs/S111/variant_01,H7Mn16O25,48,1,1,1,43 46
+S111,variant_02,generated_state_inputs/S111/variant_02,H7Mn16O25,48,2,1,1,45 46
+S111,variant_03,generated_state_inputs/S111/variant_03,H7Mn16O25,48,3,1,1,44 45
+S112,variant_01,generated_state_inputs/S112/variant_01,H6Mn16O25,47,1,1,1,43 45 46
+S112,variant_02,generated_state_inputs/S112/variant_02,H6Mn16O25,47,2,1,1,44 45 46
+S112,variant_03,generated_state_inputs/S112/variant_03,H6Mn16O25,47,3,1,1,43 44 45
+S200,variant_01,generated_state_inputs/S200/variant_01,H12Mn17O28,57,1 2,4,4,
+S200,variant_02,generated_state_inputs/S200/variant_02,H12Mn17O28,57,2 3,4,4,
+S200,variant_03,generated_state_inputs/S200/variant_03,H12Mn17O28,57,3 1,4,4,
+S201,variant_01,generated_state_inputs/S201/variant_01,H11Mn17O28,56,1 2,4,4,43
+S201,variant_02,generated_state_inputs/S201/variant_02,H11Mn17O28,56,2 3,4,4,46
+S201,variant_03,generated_state_inputs/S201/variant_03,H11Mn17O28,56,3 1,4,4,45
+S202,variant_01,generated_state_inputs/S202/variant_01,H10Mn17O28,55,1 2,4,4,43 46
+S202,variant_02,generated_state_inputs/S202/variant_02,H10Mn17O28,55,2 3,4,4,45 46
+S202,variant_03,generated_state_inputs/S202/variant_03,H10Mn17O28,55,3 1,4,4,44 45
+S210,variant_01,generated_state_inputs/S210/variant_01,H10Mn17O27,54,1 2,3,3,43
+S210,variant_02,generated_state_inputs/S210/variant_02,H10Mn17O27,54,2 3,3,3,46
+S210,variant_03,generated_state_inputs/S210/variant_03,H10Mn17O27,54,3 1,3,3,45
+S211,variant_01,generated_state_inputs/S211/variant_01,H9Mn17O27,53,1 2,3,3,43 46
+S211,variant_02,generated_state_inputs/S211/variant_02,H9Mn17O27,53,2 3,3,3,45 46
+S211,variant_03,generated_state_inputs/S211/variant_03,H9Mn17O27,53,3 1,3,3,44 45
+S212,variant_01,generated_state_inputs/S212/variant_01,H8Mn17O27,52,1 2,3,3,43 45 46
+S212,variant_02,generated_state_inputs/S212/variant_02,H8Mn17O27,52,2 3,3,3,44 45 46
+S212,variant_03,generated_state_inputs/S212/variant_03,H8Mn17O27,52,3 1,3,3,43 44 45
+S220,variant_01,generated_state_inputs/S220/variant_01,H8Mn17O26,51,1 2,2,2,43 46
+S220,variant_02,generated_state_inputs/S220/variant_02,H8Mn17O26,51,2 3,2,2,45 46
+S220,variant_03,generated_state_inputs/S220/variant_03,H8Mn17O26,51,3 1,2,2,44 45
+S221,variant_01,generated_state_inputs/S221/variant_01,H7Mn17O26,50,1 2,2,2,43 45 46
+S221,variant_02,generated_state_inputs/S221/variant_02,H7Mn17O26,50,2 3,2,2,44 45 46
+S221,variant_03,generated_state_inputs/S221/variant_03,H7Mn17O26,50,3 1,2,2,43 44 45
+S222,variant_01,generated_state_inputs/S222/variant_01,H6Mn17O26,49,1 2,2,2,43 44 45 46
+S222,variant_02,generated_state_inputs/S222/variant_02,H6Mn17O26,49,2 3,2,2,43 44 45 46
+S222,variant_03,generated_state_inputs/S222/variant_03,H6Mn17O26,49,3 1,2,2,43 44 45 46
+S300,variant_01,generated_state_inputs/S300/variant_01,H14Mn18O30,62,1 2 3,6,6,
+S300,variant_02,generated_state_inputs/S300/variant_02,H14Mn18O30,62,2 3 1,6,6,
+S300,variant_03,generated_state_inputs/S300/variant_03,H14Mn18O30,62,3 1 2,6,6,
+S301,variant_01,generated_state_inputs/S301/variant_01,H13Mn18O30,61,1 2 3,6,6,43
+S301,variant_02,generated_state_inputs/S301/variant_02,H13Mn18O30,61,2 3 1,6,6,46
+S301,variant_03,generated_state_inputs/S301/variant_03,H13Mn18O30,61,3 1 2,6,6,45
+S302,variant_01,generated_state_inputs/S302/variant_01,H12Mn18O30,60,1 2 3,6,6,43 46
+S302,variant_02,generated_state_inputs/S302/variant_02,H12Mn18O30,60,2 3 1,6,6,45 46
+S302,variant_03,generated_state_inputs/S302/variant_03,H12Mn18O30,60,3 1 2,6,6,44 45
+S310,variant_01,generated_state_inputs/S310/variant_01,H12Mn18O29,59,1 2 3,5,5,43
+S310,variant_02,generated_state_inputs/S310/variant_02,H12Mn18O29,59,2 3 1,5,5,46
+S310,variant_03,generated_state_inputs/S310/variant_03,H12Mn18O29,59,3 1 2,5,5,45
+S311,variant_01,generated_state_inputs/S311/variant_01,H11Mn18O29,58,1 2 3,5,5,43 46
+S311,variant_02,generated_state_inputs/S311/variant_02,H11Mn18O29,58,2 3 1,5,5,45 46
+S311,variant_03,generated_state_inputs/S311/variant_03,H11Mn18O29,58,3 1 2,5,5,44 45
+S312,variant_01,generated_state_inputs/S312/variant_01,H10Mn18O29,57,1 2 3,5,5,43 45 46
+S312,variant_02,generated_state_inputs/S312/variant_02,H10Mn18O29,57,2 3 1,5,5,44 45 46
+S312,variant_03,generated_state_inputs/S312/variant_03,H10Mn18O29,57,3 1 2,5,5,43 44 45
+S320,variant_01,generated_state_inputs/S320/variant_01,H10Mn18O28,56,1 2 3,4,4,43 46
+S320,variant_02,generated_state_inputs/S320/variant_02,H10Mn18O28,56,2 3 1,4,4,45 46
+S320,variant_03,generated_state_inputs/S320/variant_03,H10Mn18O28,56,3 1 2,4,4,44 45
+S321,variant_01,generated_state_inputs/S321/variant_01,H9Mn18O28,55,1 2 3,4,4,43 45 46
+S321,variant_02,generated_state_inputs/S321/variant_02,H9Mn18O28,55,2 3 1,4,4,44 45 46
+S321,variant_03,generated_state_inputs/S321/variant_03,H9Mn18O28,55,3 1 2,4,4,43 44 45
+S322,variant_01,generated_state_inputs/S322/variant_01,H8Mn18O28,54,1 2 3,4,4,43 44 45 46
+S322,variant_02,generated_state_inputs/S322/variant_02,H8Mn18O28,54,2 3 1,4,4,43 44 45 46
+S322,variant_03,generated_state_inputs/S322/variant_03,H8Mn18O28,54,3 1 2,4,4,43 44 45 46

@@ -1,0 +1,15 @@
+{
+  "state": "S102",
+  "variant": 2,
+  "selected_sites": [
+    2
+  ],
+  "added_o_count": 2,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [
+    45,
+    46
+  ],
+  "formula": "H8Mn16O26",
+  "atom_count": 50
+}

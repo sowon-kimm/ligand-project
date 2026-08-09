@@ -1,0 +1,17 @@
+{
+  "state": "S221",
+  "variant": 2,
+  "selected_sites": [
+    2,
+    3
+  ],
+  "added_o_count": 2,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [
+    44,
+    45,
+    46
+  ],
+  "formula": "H7Mn17O26",
+  "atom_count": 50
+}

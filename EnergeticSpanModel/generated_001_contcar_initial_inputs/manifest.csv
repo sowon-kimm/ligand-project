@@ -1,0 +1,27 @@
+state,variant,atom_count,fixed_atom_count,magmom,source_contcar,output_dir
+S000,1,31,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 19*0.0000,generated_001_contcar/contcar_s000_01.vasp,generated_001_contcar_initial_inputs/S000/variant_01
+S001,2,30,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 18*0.0000,generated_001_contcar/contcar_s001_02.vasp,generated_001_contcar_initial_inputs/S001/variant_02
+S100,1,36,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 23*0.0000,generated_001_contcar/contcar_s100_01.vasp,generated_001_contcar_initial_inputs/S100/variant_01
+S101,3,35,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 3.8000 22*0.0000,generated_001_contcar/contcar_s101_03.vasp,generated_001_contcar_initial_inputs/S101/variant_03
+S102,2,34,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 3.8000 21*0.0000,generated_001_contcar/contcar_s102_02.vasp,generated_001_contcar_initial_inputs/S102/variant_02
+S110,2,33,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 3.8000 20*0.0000,generated_001_contcar/contcar_s110_02.vasp,generated_001_contcar_initial_inputs/S110/variant_02
+S111,3,32,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 3.8000 19*0.0000,generated_001_contcar/contcar_s111_03.vasp,generated_001_contcar_initial_inputs/S111/variant_03
+S112,2,31,14,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 3.8000 18*0.0000,generated_001_contcar/contcar_s112_02.vasp,generated_001_contcar_initial_inputs/S112/variant_02
+S200,1,41,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 27*0.0000,generated_001_contcar/contcar_s200_01.vasp,generated_001_contcar_initial_inputs/S200/variant_01
+S201,3,40,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 26*0.0000,generated_001_contcar/contcar_s201_03.vasp,generated_001_contcar_initial_inputs/S201/variant_03
+S202,2,39,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 2*3.8000 25*0.0000,generated_001_contcar/contcar_s202_02.vasp,generated_001_contcar_initial_inputs/S202/variant_02
+S210,2,38,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 2*3.8000 24*0.0000,generated_001_contcar/contcar_s210_02.vasp,generated_001_contcar_initial_inputs/S210/variant_02
+S211,3,37,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 23*0.0000,generated_001_contcar/contcar_s211_03.vasp,generated_001_contcar_initial_inputs/S211/variant_03
+S212,3,36,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 22*0.0000,generated_001_contcar/contcar_s212_03.vasp,generated_001_contcar_initial_inputs/S212/variant_03
+S220,1,35,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 21*0.0000,generated_001_contcar/contcar_s220_01.vasp,generated_001_contcar_initial_inputs/S220/variant_01
+S221,2,34,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 2*3.8000 20*0.0000,generated_001_contcar/contcar_s221_02.vasp,generated_001_contcar_initial_inputs/S221/variant_02
+S222,3,33,14,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 3.8000 19*0.0000,generated_001_contcar/contcar_s222_03.vasp,generated_001_contcar_initial_inputs/S222/variant_03
+S300,3,46,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 31*0.0000,generated_001_contcar/contcar_s300_03.vasp,generated_001_contcar_initial_inputs/S300/variant_03
+S301,1,45,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 30*0.0000,generated_001_contcar/contcar_s301_01.vasp,generated_001_contcar_initial_inputs/S301/variant_01
+S302,3,44,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 29*0.0000,generated_001_contcar/contcar_s302_03.vasp,generated_001_contcar_initial_inputs/S302/variant_03
+S310,3,43,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 28*0.0000,generated_001_contcar/contcar_s310_03.vasp,generated_001_contcar_initial_inputs/S310/variant_03
+S311,3,42,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 27*0.0000,generated_001_contcar/contcar_s311_03.vasp,generated_001_contcar_initial_inputs/S311/variant_03
+S312,3,41,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 26*0.0000,generated_001_contcar/contcar_s312_03.vasp,generated_001_contcar_initial_inputs/S312/variant_03
+S320,1,40,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 25*0.0000,generated_001_contcar/contcar_s320_01.vasp,generated_001_contcar_initial_inputs/S320/variant_01
+S321,1,39,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 24*0.0000,generated_001_contcar/contcar_s321_01.vasp,generated_001_contcar_initial_inputs/S321/variant_01
+S322,2,38,15,-3.8000 3*3.8000 3*-3.8000 3.8000 4*4.4000 -4.4000 2*3.8000 23*0.0000,generated_001_contcar/contcar_s322_02.vasp,generated_001_contcar_initial_inputs/S322/variant_02

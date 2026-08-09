@@ -1,0 +1,15 @@
+{
+  "state": "S201",
+  "variant": 3,
+  "selected_sites": [
+    3,
+    1
+  ],
+  "added_o_count": 4,
+  "added_h_count": 4,
+  "removed_slab_h_indices": [
+    37
+  ],
+  "formula": "H11Mn14O24",
+  "atom_count": 49
+}

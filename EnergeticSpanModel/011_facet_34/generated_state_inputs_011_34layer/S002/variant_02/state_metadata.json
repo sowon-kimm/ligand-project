@@ -1,0 +1,13 @@
+{
+  "state": "S002",
+  "variant": 2,
+  "selected_sites": [],
+  "added_o_count": 0,
+  "added_h_count": 0,
+  "removed_slab_h_indices": [
+    45,
+    46
+  ],
+  "formula": "H6Mn15O24",
+  "atom_count": 45
+}

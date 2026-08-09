@@ -1,0 +1,119 @@
+flowchart TD
+    classDef start fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef final fill:#fff3e0,stroke:#ef6c00,stroke-width:2px;
+    classDef normal fill:#ffffff,stroke:#555555;
+
+    subgraph R0[step 0]
+        direction LR
+        S000["S(0,0,0)\nstart"]
+    end
+
+    subgraph R1[step 1]
+        direction LR
+        S001["S(0,0,1)"]
+        S100["S(1,0,0)"]
+    end
+
+    subgraph R2[step 2]
+        direction LR
+        S002["S(0,0,2)"]
+        S101["S(1,0,1)"]
+        S110["S(1,1,0)"]
+        S200["S(2,0,0)"]
+    end
+
+    subgraph R3[step 3]
+        direction LR
+        S102["S(1,0,2)"]
+        S111["S(1,1,1)"]
+        S201["S(2,0,1)"]
+        S210["S(2,1,0)"]
+        S300["S(3,0,0)"]
+    end
+
+    subgraph R4[step 4]
+        direction LR
+        S112["S(1,1,2)"]
+        S202["S(2,0,2)"]
+        S211["S(2,1,1)"]
+        S220["S(2,2,0)"]
+        S301["S(3,0,1)"]
+        S310["S(3,1,0)"]
+    end
+
+    subgraph R5[step 5]
+        direction LR
+        S212["S(2,1,2)"]
+        S221["S(2,2,1)"]
+        S302["S(3,0,2)"]
+        S311["S(3,1,1)"]
+        S320["S(3,2,0)"]
+    end
+
+    subgraph R6[step 6]
+        direction LR
+        S222["S(2,2,2)"]
+        S312["S(3,1,2)"]
+        S321["S(3,2,1)"]
+    end
+
+    subgraph R7[step 7]
+        direction LR
+        S322["S(3,2,2)\nfinal"]
+    end
+
+    S000 -->|O| S100
+    S000 -->|X| S001
+    S001 -->|O| S101
+    S001 -->|X| S002
+    S002 -->|O| S102
+    S100 -->|O| S200
+    S100 -->|C| S110
+    S100 -->|X| S101
+    S101 -->|O| S201
+    S101 -->|C| S111
+    S101 -->|X| S102
+    S102 -->|O| S202
+    S102 -->|C| S112
+    S110 -->|O| S210
+    S110 -->|X| S111
+    S111 -->|O| S211
+    S111 -->|X| S112
+    S112 -->|O| S212
+    S200 -->|O| S300
+    S200 -->|C| S210
+    S200 -->|X| S201
+    S201 -->|O| S301
+    S201 -->|C| S211
+    S201 -->|X| S202
+    S202 -->|O| S302
+    S202 -->|C| S212
+    S210 -->|O| S310
+    S210 -->|C| S220
+    S210 -->|X| S211
+    S211 -->|O| S311
+    S211 -->|C| S221
+    S211 -->|X| S212
+    S212 -->|O| S312
+    S212 -->|C| S222
+    S220 -->|O| S320
+    S220 -->|X| S221
+    S221 -->|O| S321
+    S221 -->|X| S222
+    S222 -->|O| S322
+    S300 -->|C| S310
+    S300 -->|X| S301
+    S301 -->|C| S311
+    S301 -->|X| S302
+    S302 -->|C| S312
+    S310 -->|C| S320
+    S310 -->|X| S311
+    S311 -->|C| S321
+    S311 -->|X| S312
+    S312 -->|C| S322
+    S320 -->|X| S321
+    S321 -->|X| S322
+
+    class S000 start;
+    class S322 final;
+    class S001,S002,S100,S101,S102,S110,S111,S112,S200,S201,S202,S210,S211,S212,S220,S221,S222,S300,S301,S302,S310,S311,S312,S320,S321 normal;

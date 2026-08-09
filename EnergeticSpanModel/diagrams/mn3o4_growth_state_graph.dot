@@ -1,0 +1,94 @@
+digraph Mn3O4Growth {
+  graph [rankdir=TB, splines=true, nodesep=0.45, ranksep=0.6];
+  node [shape=box, style="rounded,filled", fillcolor=white, fontname=Helvetica];
+  edge [fontname=Helvetica];
+
+  S000 [label="S(0,0,0)\nstart", fillcolor="#e8f5e9", color="#2e7d32", penwidth=2];
+  S001 [label="S(0,0,1)"];
+  S002 [label="S(0,0,2)"];
+  S100 [label="S(1,0,0)"];
+  S101 [label="S(1,0,1)"];
+  S102 [label="S(1,0,2)"];
+  S110 [label="S(1,1,0)"];
+  S111 [label="S(1,1,1)"];
+  S112 [label="S(1,1,2)"];
+  S200 [label="S(2,0,0)"];
+  S201 [label="S(2,0,1)"];
+  S202 [label="S(2,0,2)"];
+  S210 [label="S(2,1,0)"];
+  S211 [label="S(2,1,1)"];
+  S212 [label="S(2,1,2)"];
+  S220 [label="S(2,2,0)"];
+  S221 [label="S(2,2,1)"];
+  S222 [label="S(2,2,2)"];
+  S300 [label="S(3,0,0)"];
+  S301 [label="S(3,0,1)"];
+  S302 [label="S(3,0,2)"];
+  S310 [label="S(3,1,0)"];
+  S311 [label="S(3,1,1)"];
+  S312 [label="S(3,1,2)"];
+  S320 [label="S(3,2,0)"];
+  S321 [label="S(3,2,1)"];
+  S322 [label="S(3,2,2)\nfinal", fillcolor="#fff3e0", color="#ef6c00", penwidth=2];
+
+  { rank=same; S000; }
+  { rank=same; S001; S100; }
+  { rank=same; S002; S101; S110; S200; }
+  { rank=same; S102; S111; S201; S210; S300; }
+  { rank=same; S112; S202; S211; S220; S301; S310; }
+  { rank=same; S212; S221; S302; S311; S320; }
+  { rank=same; S222; S312; S321; }
+  { rank=same; S322; }
+
+  S000 -> S100 [label="O"];
+  S000 -> S001 [label="X"];
+  S001 -> S101 [label="O"];
+  S001 -> S002 [label="X"];
+  S002 -> S102 [label="O"];
+  S100 -> S200 [label="O"];
+  S100 -> S110 [label="C"];
+  S100 -> S101 [label="X"];
+  S101 -> S201 [label="O"];
+  S101 -> S111 [label="C"];
+  S101 -> S102 [label="X"];
+  S102 -> S202 [label="O"];
+  S102 -> S112 [label="C"];
+  S110 -> S210 [label="O"];
+  S110 -> S111 [label="X"];
+  S111 -> S211 [label="O"];
+  S111 -> S112 [label="X"];
+  S112 -> S212 [label="O"];
+  S200 -> S300 [label="O"];
+  S200 -> S210 [label="C"];
+  S200 -> S201 [label="X"];
+  S201 -> S301 [label="O"];
+  S201 -> S211 [label="C"];
+  S201 -> S202 [label="X"];
+  S202 -> S302 [label="O"];
+  S202 -> S212 [label="C"];
+  S210 -> S310 [label="O"];
+  S210 -> S220 [label="C"];
+  S210 -> S211 [label="X"];
+  S211 -> S311 [label="O"];
+  S211 -> S221 [label="C"];
+  S211 -> S212 [label="X"];
+  S212 -> S312 [label="O"];
+  S212 -> S222 [label="C"];
+  S220 -> S320 [label="O"];
+  S220 -> S221 [label="X"];
+  S221 -> S321 [label="O"];
+  S221 -> S222 [label="X"];
+  S222 -> S322 [label="O"];
+  S300 -> S310 [label="C"];
+  S300 -> S301 [label="X"];
+  S301 -> S311 [label="C"];
+  S301 -> S302 [label="X"];
+  S302 -> S312 [label="C"];
+  S310 -> S320 [label="C"];
+  S310 -> S311 [label="X"];
+  S311 -> S321 [label="C"];
+  S311 -> S312 [label="X"];
+  S312 -> S322 [label="C"];
+  S320 -> S321 [label="X"];
+  S321 -> S322 [label="X"];
+}

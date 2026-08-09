@@ -1,0 +1,16 @@
+{
+  "state": "S301",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2,
+    3
+  ],
+  "added_o_count": 6,
+  "added_h_count": 6,
+  "removed_slab_h_indices": [
+    43
+  ],
+  "formula": "H13Mn18O30",
+  "atom_count": 61
+}

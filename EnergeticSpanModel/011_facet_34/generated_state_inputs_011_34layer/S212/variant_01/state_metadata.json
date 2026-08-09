@@ -1,0 +1,17 @@
+{
+  "state": "S212",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2
+  ],
+  "added_o_count": 3,
+  "added_h_count": 3,
+  "removed_slab_h_indices": [
+    43,
+    45,
+    46
+  ],
+  "formula": "H8Mn17O27",
+  "atom_count": 52
+}

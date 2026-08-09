@@ -1,0 +1,17 @@
+{
+  "state": "S320",
+  "variant": 2,
+  "selected_sites": [
+    2,
+    3,
+    1
+  ],
+  "added_o_count": 4,
+  "added_h_count": 4,
+  "removed_slab_h_indices": [
+    45,
+    46
+  ],
+  "formula": "H10Mn18O28",
+  "atom_count": 56
+}

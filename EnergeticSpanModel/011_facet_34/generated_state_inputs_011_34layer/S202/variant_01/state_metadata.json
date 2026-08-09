@@ -1,0 +1,16 @@
+{
+  "state": "S202",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2
+  ],
+  "added_o_count": 4,
+  "added_h_count": 4,
+  "removed_slab_h_indices": [
+    43,
+    46
+  ],
+  "formula": "H10Mn17O28",
+  "atom_count": 55
+}

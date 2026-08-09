@@ -1,0 +1,14 @@
+{
+  "state": "S(3, 2, 1)",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2,
+    3
+  ],
+  "added_o_count": 4,
+  "added_h_count": 1,
+  "removed_slab_h_indices": [],
+  "formula": "H3Mn15O21",
+  "atom_count": 39
+}

@@ -1,0 +1,14 @@
+{
+  "state": "S(3, 0, 0)",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2,
+    3
+  ],
+  "added_o_count": 6,
+  "added_h_count": 6,
+  "removed_slab_h_indices": [],
+  "formula": "H8Mn15O23",
+  "atom_count": 46
+}

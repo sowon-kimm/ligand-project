@@ -1,0 +1,12 @@
+{
+  "state": "S(0, 0, 1)",
+  "variant": 3,
+  "selected_sites": [],
+  "added_o_count": 0,
+  "added_h_count": 0,
+  "removed_slab_h_indices": [
+    30
+  ],
+  "formula": "HMn12O17",
+  "atom_count": 30
+}

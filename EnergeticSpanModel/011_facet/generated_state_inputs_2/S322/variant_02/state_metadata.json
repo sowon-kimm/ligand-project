@@ -1,0 +1,19 @@
+{
+  "state": "S322",
+  "variant": 2,
+  "selected_sites": [
+    2,
+    3,
+    1
+  ],
+  "added_o_count": 4,
+  "added_h_count": 4,
+  "removed_slab_h_indices": [
+    36,
+    37,
+    38,
+    39
+  ],
+  "formula": "H8Mn15O24",
+  "atom_count": 47
+}

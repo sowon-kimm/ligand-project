@@ -1,0 +1,14 @@
+{
+  "state": "S110",
+  "variant": 2,
+  "selected_sites": [
+    2
+  ],
+  "added_o_count": 1,
+  "added_h_count": 1,
+  "removed_slab_h_indices": [
+    46
+  ],
+  "formula": "H8Mn16O25",
+  "atom_count": 49
+}

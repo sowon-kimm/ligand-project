@@ -1,0 +1,14 @@
+{
+  "state": "S101",
+  "variant": 2,
+  "selected_sites": [
+    2
+  ],
+  "added_o_count": 2,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [
+    46
+  ],
+  "formula": "H9Mn16O26",
+  "atom_count": 51
+}

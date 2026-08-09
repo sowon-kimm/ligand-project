@@ -1,0 +1,14 @@
+{
+  "state": "S300",
+  "variant": 3,
+  "selected_sites": [
+    3,
+    1,
+    2
+  ],
+  "added_o_count": 6,
+  "added_h_count": 6,
+  "removed_slab_h_indices": [],
+  "formula": "H14Mn18O30",
+  "atom_count": 62
+}

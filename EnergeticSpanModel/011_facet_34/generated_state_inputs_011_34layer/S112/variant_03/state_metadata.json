@@ -1,0 +1,16 @@
+{
+  "state": "S112",
+  "variant": 3,
+  "selected_sites": [
+    3
+  ],
+  "added_o_count": 1,
+  "added_h_count": 1,
+  "removed_slab_h_indices": [
+    43,
+    44,
+    45
+  ],
+  "formula": "H6Mn16O25",
+  "atom_count": 47
+}

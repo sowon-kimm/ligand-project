@@ -1,0 +1,15 @@
+{
+  "state": "S210",
+  "variant": 3,
+  "selected_sites": [
+    3,
+    1
+  ],
+  "added_o_count": 3,
+  "added_h_count": 3,
+  "removed_slab_h_indices": [
+    45
+  ],
+  "formula": "H10Mn17O27",
+  "atom_count": 54
+}

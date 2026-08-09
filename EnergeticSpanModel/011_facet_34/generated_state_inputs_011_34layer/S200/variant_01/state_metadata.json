@@ -1,0 +1,13 @@
+{
+  "state": "S200",
+  "variant": 1,
+  "selected_sites": [
+    1,
+    2
+  ],
+  "added_o_count": 4,
+  "added_h_count": 4,
+  "removed_slab_h_indices": [],
+  "formula": "H12Mn17O28",
+  "atom_count": 57
+}

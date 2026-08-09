@@ -1,0 +1,16 @@
+{
+  "state": "S220",
+  "variant": 2,
+  "selected_sites": [
+    2,
+    3
+  ],
+  "added_o_count": 2,
+  "added_h_count": 2,
+  "removed_slab_h_indices": [
+    37,
+    38
+  ],
+  "formula": "H8Mn14O22",
+  "atom_count": 44
+}

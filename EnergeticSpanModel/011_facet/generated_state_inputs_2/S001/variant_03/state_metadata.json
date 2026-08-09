@@ -1,0 +1,12 @@
+{
+  "state": "S001",
+  "variant": 3,
+  "selected_sites": [],
+  "added_o_count": 0,
+  "added_h_count": 0,
+  "removed_slab_h_indices": [
+    37
+  ],
+  "formula": "H7Mn12O20",
+  "atom_count": 39
+}
