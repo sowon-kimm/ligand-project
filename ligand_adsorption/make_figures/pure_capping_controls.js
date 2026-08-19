@@ -85,7 +85,7 @@
             }
             values.push(
                 correctedEnergy(stateByName.get(fromName), ligand, muMn, muH2O),
-                correctedEnergy(stateByName.get(toName), ligand, muMn, muH2O),
+                correctedEnergy(stateByName.get(toName), "pure", muMn, muH2O),
                 null,
             );
         }
@@ -105,11 +105,314 @@
         return payload.states.map((state) => correctedEnergy(state, energyKey, muMn, muH2O));
     }
 
+    function expandedEntries(path, ligand, muMn, muH2O) {
+        const entries = [];
+        for (const name of path.states) {
+            const state = stateByName.get(name);
+            entries.push(
+                {
+                    state: name,
+                    label: `pure(${name})`,
+                    x: state.pure_x,
+                    energy: correctedEnergy(state, "pure", muMn, muH2O),
+                },
+                {
+                    state: name,
+                    label: `${ligand}-capped(${name})`,
+                    x: state.capping_x,
+                    energy: correctedEnergy(state, ligand, muMn, muH2O),
+                },
+            );
+        }
+        return entries;
+    }
+
+    function energeticSpan(path, ligand, muMn, muH2O) {
+        const entries = expandedEntries(path, ligand, muMn, muH2O);
+        const reactionEnergy = entries[entries.length - 1].energy - entries[0].energy;
+        const candidates = entries.slice(0, -1);
+        let maximumSpan = -Infinity;
+        let pairs = [];
+
+        candidates.forEach((tdts, tdtsIndex) => {
+            candidates.forEach((tdi, tdiIndex) => {
+                const correction = tdtsIndex < tdiIndex ? reactionEnergy : 0;
+                const span = tdts.energy - tdi.energy + correction;
+                if (span > maximumSpan + payload.tieTolerance) {
+                    maximumSpan = span;
+                    pairs = [{tdi, tdts}];
+                } else if (Math.abs(span - maximumSpan) <= payload.tieTolerance) {
+                    pairs.push({tdi, tdts});
+                }
+            });
+        });
+        return {deltaE: maximumSpan, pairs};
+    }
+
+    function minimumPath(ligand, muMn, muH2O) {
+        let minimumSpan = Infinity;
+        let representative = null;
+        let representativePair = null;
+        let cooptimalCount = 0;
+
+        for (const path of payload.allPaths) {
+            const span = energeticSpan(path, ligand, muMn, muH2O);
+            if (span.deltaE < minimumSpan - payload.tieTolerance) {
+                minimumSpan = span.deltaE;
+                representative = path;
+                representativePair = span.pairs[0];
+                cooptimalCount = 1;
+            } else if (Math.abs(span.deltaE - minimumSpan) <= payload.tieTolerance) {
+                cooptimalCount += 1;
+            }
+        }
+        return {
+            path: representative,
+            deltaE: minimumSpan,
+            cooptimalCount,
+            pair: representativePair,
+        };
+    }
+
+    function sortedStates(names) {
+        return Array.from(names).sort((left, right) => {
+            const a = stateByName.get(left);
+            const b = stateByName.get(right);
+            return a.coordinate - b.coordinate || left.localeCompare(right);
+        });
+    }
+
+    function selectedLinkXY(names, ligand, muMn, muH2O) {
+        const x = [];
+        const y = [];
+        for (const name of names) {
+            const state = stateByName.get(name);
+            x.push(
+                state.pure_x + payload.levelHalfWidth,
+                state.capping_x - payload.levelHalfWidth,
+                null,
+            );
+            y.push(
+                correctedEnergy(state, "pure", muMn, muH2O),
+                correctedEnergy(state, ligand, muMn, muH2O),
+                null,
+            );
+        }
+        return {x, y};
+    }
+
+    function selectedReactionXY(path, ligand, transition, muMn, muH2O) {
+        const x = [];
+        const y = [];
+        path.mechanisms.forEach((mechanism, index) => {
+            if (mechanism !== transition) {
+                return;
+            }
+            const source = stateByName.get(path.states[index]);
+            const target = stateByName.get(path.states[index + 1]);
+            x.push(
+                source.capping_x + payload.levelHalfWidth,
+                target.pure_x - payload.levelHalfWidth,
+                null,
+            );
+            y.push(
+                correctedEnergy(source, ligand, muMn, muH2O),
+                correctedEnergy(target, "pure", muMn, muH2O),
+                null,
+            );
+        });
+        return {x, y};
+    }
+
+    function selectedLevelXY(names, energyKey, xKey, muMn, muH2O) {
+        const x = [];
+        const y = [];
+        for (const name of names) {
+            const state = stateByName.get(name);
+            const energy = correctedEnergy(state, energyKey, muMn, muH2O);
+            x.push(
+                state[xKey] - payload.levelHalfWidth,
+                state[xKey] + payload.levelHalfWidth,
+                null,
+            );
+            y.push(energy, energy, null);
+        }
+        return {x, y};
+    }
+
+    function cappedMarkerData(names, ligand, muMn, muH2O) {
+        const x = [];
+        const y = [];
+        const customdata = [];
+        for (const name of names) {
+            const state = stateByName.get(name);
+            x.push(state.capping_x);
+            y.push(correctedEnergy(state, ligand, muMn, muH2O));
+            customdata.push([
+                state.state,
+                state.coordinate,
+                state[ligand],
+                state[ligand] - state.pure,
+                state.O,
+                state.C,
+                state.X,
+            ]);
+        }
+        return {x, y, customdata};
+    }
+
+    function pureMarkerData(names, muMn, muH2O) {
+        const x = [];
+        const y = [];
+        const text = [];
+        const customdata = [];
+        for (const name of names) {
+            const state = stateByName.get(name);
+            x.push(state.pure_x);
+            y.push(correctedEnergy(state, "pure", muMn, muH2O));
+            text.push(state.state);
+            customdata.push([
+                state.state,
+                state.coordinate,
+                state.pure,
+                state.O,
+                state.C,
+                state.X,
+            ]);
+        }
+        return {x, y, text, customdata};
+    }
+
+    function updateMinimumPaths(muMn, muH2O) {
+        const results = {};
+        const pureStateUnion = new Set();
+
+        for (const ligand of payload.ligands) {
+            const result = minimumPath(ligand, muMn, muH2O);
+            results[ligand] = result;
+            result.path.states.forEach((name) => pureStateUnion.add(name));
+            const indices = payload.traceIndices[ligand];
+            const link = selectedLinkXY(
+                result.path.states, ligand, muMn, muH2O
+            );
+            Plotly.restyle(
+                graph,
+                {x: [link.x], y: [link.y]},
+                [indices.capping_link],
+            );
+
+            for (const transition of payload.transitions) {
+                const reaction = selectedReactionXY(
+                    result.path, ligand, transition, muMn, muH2O
+                );
+                Plotly.restyle(
+                    graph,
+                    {x: [reaction.x], y: [reaction.y]},
+                    [indices.reaction[transition]],
+                );
+            }
+
+            const levels = selectedLevelXY(
+                result.path.states, ligand, "capping_x", muMn, muH2O
+            );
+            Plotly.restyle(
+                graph,
+                {x: [levels.x], y: [levels.y]},
+                [indices.capped_levels],
+            );
+            const markers = cappedMarkerData(
+                result.path.states, ligand, muMn, muH2O
+            );
+            Plotly.restyle(
+                graph,
+                {
+                    x: [markers.x],
+                    y: [markers.y],
+                    customdata: [markers.customdata],
+                },
+                [indices.capped_markers],
+            );
+        }
+
+        const pureNames = sortedStates(pureStateUnion);
+        const pureLevels = selectedLevelXY(
+            pureNames, "pure", "pure_x", muMn, muH2O
+        );
+        const pureMarkers = pureMarkerData(pureNames, muMn, muH2O);
+        const sharedIndices = payload.traceIndices[payload.ligands[0]];
+        Plotly.restyle(
+            graph,
+            {x: [pureLevels.x], y: [pureLevels.y]},
+            [sharedIndices.pure_levels],
+        );
+        Plotly.restyle(
+            graph,
+            {
+                x: [pureMarkers.x],
+                y: [pureMarkers.y],
+                text: [pureMarkers.text],
+                customdata: [pureMarkers.customdata],
+            },
+            [sharedIndices.pure_markers],
+        );
+
+        const carboxyl = results.carboxyl;
+        const amine = results.amine;
+        if (sharedIndices.tdi_marker !== undefined) {
+            Plotly.restyle(
+                graph,
+                {
+                    x: [[carboxyl.pair.tdi.x]],
+                    y: [[carboxyl.pair.tdi.energy]],
+                    text: [[`TDI: ${carboxyl.pair.tdi.state}`]],
+                    customdata: [[[carboxyl.pair.tdi.label]]],
+                },
+                [sharedIndices.tdi_marker],
+            );
+            Plotly.restyle(
+                graph,
+                {
+                    x: [[carboxyl.pair.tdts.x]],
+                    y: [[carboxyl.pair.tdts.energy]],
+                    text: [[`TDTS*: ${carboxyl.pair.tdts.state}`]],
+                    customdata: [[[carboxyl.pair.tdts.label]]],
+                },
+                [sharedIndices.tdts_marker],
+            );
+        }
+        const carboxylTie = carboxyl.cooptimalCount > 1
+            ? ` (+${carboxyl.cooptimalCount - 1} co-optimal)`
+            : "";
+        const amineTie = amine.cooptimalCount > 1
+            ? ` (+${amine.cooptimalCount - 1} co-optimal)`
+            : "";
+        const title = "<b>Minimum pure → capped half-step → next pure pathways</b>" +
+            `<br><sup>ΔμMn(OH)₂ = ${muMn.toFixed(2)} eV, ` +
+            `ΔμH₂O = ${muH2O.toFixed(2)} eV` +
+            ` | Carboxyl δE<sub>span</sub> = ${carboxyl.deltaE.toFixed(4)} eV ` +
+            `(${carboxyl.path.path_id})${carboxylTie}` +
+            ` | Amine δE<sub>span</sub> = ${amine.deltaE.toFixed(4)} eV ` +
+            `(${amine.path.path_id})${amineTie}` +
+            `<br>Carboxyl TDI = ${carboxyl.pair.tdi.label}, ` +
+            `TDTS* = ${carboxyl.pair.tdts.label}` +
+            ` | path: ${carboxyl.path.states.join(" → ")}` +
+            `<br>Amine path: ${amine.path.states.join(" → ")}</sup>`;
+        Plotly.relayout(graph, {
+            "title.text": title,
+            "yaxis.autorange": false,
+        });
+    }
+
     function update() {
         const muMn = Number(muMnInput.value);
         const muH2O = Number(muH2OInput.value);
         muMnValue.value = `${muMn.toFixed(2)} eV`;
         muH2OValue.value = `${muH2O.toFixed(2)} eV`;
+
+        if (payload.layoutMode === "combined-minimum") {
+            updateMinimumPaths(muMn, muH2O);
+            return;
+        }
 
         for (const ligand of payload.ligands) {
             const indices = payload.traceIndices[ligand];

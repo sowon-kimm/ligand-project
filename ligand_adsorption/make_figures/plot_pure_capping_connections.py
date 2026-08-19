@@ -17,6 +17,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_INPUT = SCRIPT_DIR / "book_capping.CSV"
 DEFAULT_OUTPUT = SCRIPT_DIR / "pure_capping_connections.html"
 DEFAULT_COMBINED_OUTPUT = SCRIPT_DIR / "pure_capping_connections_combined.html"
+DEFAULT_COMBINED_MINIMUM_OUTPUT = (
+    SCRIPT_DIR / "pure_capping_minimum_paths_combined.html"
+)
 CONTROL_TEMPLATE = SCRIPT_DIR / "pure_capping_controls.js"
 
 REQUIRED_COLUMNS = {"state", "pure", "carboxyl", "amine"}
@@ -24,6 +27,9 @@ LIGANDS = ("carboxyl", "amine")
 TRANSITIONS = ("OL", "C", "SR", "OX")
 MU_LIMITS = (-4.0, 0.0)
 LEVEL_HALF_WIDTH = 0.12
+START_STATE = "S000"
+FINAL_STATE = "S322"
+TIE_TOLERANCE_EV = 1e-6
 
 COLORS = {
     "pure": "#111111",
@@ -107,6 +113,38 @@ def build_edges(df: pd.DataFrame) -> list[tuple[str, str, str]]:
     return edges
 
 
+def enumerate_paths(
+    edges: list[tuple[str, str, str]],
+    start_state: str = START_STATE,
+    final_state: str = FINAL_STATE,
+) -> list[dict]:
+    """Enumerate all complete reaction paths in stable lexical order."""
+    adjacency: dict[str, list[tuple[str, str]]] = {}
+    for source, target, transition in edges:
+        adjacency.setdefault(source, []).append((target, transition))
+    for source in adjacency:
+        adjacency[source].sort()
+
+    paths: list[dict] = []
+
+    def dfs(state: str, states: list[str], mechanisms: list[str]) -> None:
+        if state == final_state:
+            paths.append(
+                {"states": states.copy(), "mechanisms": mechanisms.copy()}
+            )
+            return
+        for target, transition in adjacency.get(state, []):
+            dfs(target, states + [target], mechanisms + [transition])
+
+    dfs(start_state, [start_state], [])
+    paths.sort(key=lambda path: " -> ".join(path["states"]))
+    for index, path in enumerate(paths, start=1):
+        path["path_id"] = f"P{index:03d}"
+    if not paths:
+        raise ValueError(f"No complete path from {start_state} to {final_state}")
+    return paths
+
+
 def corrected_energy(
     row: pd.Series | dict, energy_column: str, mu_mn: float, mu_h2o: float
 ) -> float:
@@ -152,7 +190,7 @@ def reaction_edge_arrays(
     mu_mn: float = 0.0,
     mu_h2o: float = 0.0,
 ) -> tuple[list, list]:
-    """Build capped-state reaction segments for one transition type."""
+    """Build capped-source to next-pure reaction segments."""
     state_map = df.set_index("state").to_dict("index")
     x_values: list[float | None] = []
     y_values: list[float | None] = []
@@ -165,14 +203,14 @@ def reaction_edge_arrays(
         x_values.extend(
             [
                 source["capping_x"] + LEVEL_HALF_WIDTH,
-                target["capping_x"] - LEVEL_HALF_WIDTH,
+                target["pure_x"] - LEVEL_HALF_WIDTH,
                 None,
             ]
         )
         y_values.extend(
             [
                 corrected_energy(source, ligand, mu_mn, mu_h2o),
-                corrected_energy(target, ligand, mu_mn, mu_h2o),
+                corrected_energy(target, "pure", mu_mn, mu_h2o),
                 None,
             ]
         )
@@ -231,7 +269,11 @@ def make_figure(
                 x=link_x,
                 y=link_y,
                 mode="lines",
-                line={"width": 2.0, "color": COLORS[ligand], "dash": "dot"},
+                line={
+                    "width": 2.0,
+                    "color": COLORS["pure"],
+                    "dash": "solid" if ligand == "carboxyl" else "dash",
+                },
                 opacity=0.65,
                 name="Pure → capped",
                 legendgroup="capping_link",
@@ -300,8 +342,13 @@ def make_figure(
                 mode="markers+text",
                 text=df["state"],
                 textposition="top center",
-                textfont={"size": 9, "color": COLORS["pure"]},
-                marker={"size": 7, "color": COLORS["pure"]},
+                textfont={"size": 12, "color": COLORS["pure"]},
+                marker={
+                    "size": 7,
+                    "symbol": "circle",
+                    "color": COLORS["pure"],
+                    "line": {"width": 0.8, "color": "white"},
+                },
                 name="Pure state",
                 legendgroup="pure",
                 showlegend=row_number == 1,
@@ -337,7 +384,7 @@ def make_figure(
                 mode="markers",
                 marker={
                     "size": 9,
-                    "symbol": "diamond" if ligand == "carboxyl" else "circle",
+                    "symbol": "diamond" if ligand == "carboxyl" else "triangle-up",
                     "color": COLORS[ligand],
                     "line": {"width": 0.8, "color": "white"},
                 },
@@ -382,7 +429,7 @@ def make_figure(
         hovermode="closest",
         legend={
             "orientation": "h",
-            "x": 0.5,
+            "x": 0.58,
             "xanchor": "center",
             "y": 1.08,
         },
@@ -439,7 +486,11 @@ def make_combined_figure(
                 x=link_x,
                 y=link_y,
                 mode="lines",
-                line={"width": 2.0, "color": COLORS[ligand], "dash": "dot"},
+                line={
+                    "width": 2.0,
+                    "color": COLORS["pure"],
+                    "dash": "solid" if ligand == "carboxyl" else "dash",
+                },
                 opacity=0.65,
                 name=f"{ligand_label} adsorption",
                 legendgroup=f"combined_{ligand}",
@@ -505,7 +556,7 @@ def make_combined_figure(
                 mode="markers",
                 marker={
                     "size": 9,
-                    "symbol": "diamond" if ligand == "carboxyl" else "circle",
+                    "symbol": "diamond" if ligand == "carboxyl" else "triangle-up",
                     "color": COLORS[ligand],
                     "line": {"width": 0.8, "color": "white"},
                 },
@@ -549,8 +600,13 @@ def make_combined_figure(
             mode="markers+text",
             text=df["state"],
             textposition="top center",
-            textfont={"size": 9, "color": COLORS["pure"]},
-            marker={"size": 7, "color": COLORS["pure"]},
+            textfont={"size": 12, "color": COLORS["pure"]},
+            marker={
+                "size": 7,
+                "symbol": "circle",
+                "color": COLORS["pure"],
+                "line": {"width": 0.8, "color": "white"},
+            },
             name="Pure state",
             legendgroup="pure",
             customdata=pure_custom.to_numpy(),
@@ -593,7 +649,7 @@ def make_combined_figure(
         hovermode="closest",
         legend={
             "orientation": "h",
-            "x": 0.5,
+            "x": 0.58,
             "xanchor": "center",
             "y": 1.15,
         },
@@ -621,6 +677,72 @@ def make_combined_figure(
     return fig, trace_indices
 
 
+def make_combined_minimum_figure(
+    df: pd.DataFrame, edges: list[tuple[str, str, str]]
+) -> tuple[go.Figure, dict]:
+    """Create the combined canvas used for dynamically selected minimum paths."""
+    fig, trace_indices = make_combined_figure(df, edges)
+    trace_indices["carboxyl"]["tdi_marker"] = add_trace(
+        fig,
+        go.Scatter(
+            x=[], y=[], mode="markers+text",
+            marker={
+                "size": 17,
+                "symbol": "diamond",
+                "color": "#00AEEF",
+                "line": {"width": 2, "color": COLORS["carboxyl"]},
+            },
+            textposition="bottom center",
+            textfont={"size": 11, "color": COLORS["carboxyl"]},
+            name="Carboxyl TDI",
+            zorder=100,
+            cliponaxis=False,
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>TDI for carboxyl<br>"
+                "Corrected energy: %{y:.6f} eV<extra></extra>"
+            ),
+        ),
+        1,
+    )
+    trace_indices["carboxyl"]["tdts_marker"] = add_trace(
+        fig,
+        go.Scatter(
+            x=[], y=[], mode="markers+text",
+            marker={
+                "size": 21,
+                "symbol": "star",
+                "color": "#E53935",
+                "line": {"width": 2, "color": COLORS["carboxyl"]},
+            },
+            textposition="bottom center",
+            textfont={"size": 11, "color": COLORS["carboxyl"]},
+            name="Carboxyl TDTS proxy",
+            zorder=101,
+            cliponaxis=False,
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>TDTS proxy for carboxyl<br>"
+                "Corrected energy: %{y:.6f} eV<extra></extra>"
+            ),
+        ),
+        1,
+    )
+    fig.update_layout(
+        title=(
+            "<b>Minimum pure → capped half-step → next pure pathways</b>"
+            "<br><sup>TDTS is an energy-level proxy</sup>"
+        ),
+        height=950,
+        margin={"l": 90, "r": 45, "t": 205, "b": 80},
+        legend={
+            "orientation": "h",
+            "x": 0.58,
+            "xanchor": "center",
+            "y": 1.20,
+        },
+    )
+    return fig, trace_indices
+
+
 def state_payload(df: pd.DataFrame) -> list[dict]:
     columns = [
         "state",
@@ -645,6 +767,7 @@ def write_interactive_html(
     edges: list[tuple[str, str, str]],
     trace_indices: dict,
     layout_mode: str,
+    all_paths: list[dict],
 ) -> None:
     """Write a standalone Plotly HTML file with two chemical-potential sliders."""
     payload = {
@@ -655,6 +778,8 @@ def write_interactive_html(
         "levelHalfWidth": LEVEL_HALF_WIDTH,
         "traceIndices": trace_indices,
         "layoutMode": layout_mode,
+        "allPaths": all_paths,
+        "tieTolerance": TIE_TOLERANCE_EV,
         "muMin": MU_LIMITS[0],
         "muMax": MU_LIMITS[1],
     }
@@ -687,15 +812,28 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--layout",
-        choices=("panels", "combined"),
+        choices=("panels", "combined", "combined-minimum"),
         default="panels",
-        help="Use separate ligand panels or overlay both ligands (default: panels)",
+        help=(
+            "Use separate panels, overlay all paths, or overlay only minimum "
+            "energetic-span paths (default: panels)"
+        ),
     )
     parser.add_argument(
         "--output",
         type=Path,
         default=None,
         help="Output standalone HTML file (default depends on --layout)",
+    )
+    parser.add_argument(
+        "--start-state",
+        default=START_STATE,
+        help=f"Initial state for complete paths (default: {START_STATE})",
+    )
+    parser.add_argument(
+        "--final-state",
+        default=FINAL_STATE,
+        help=f"Final state for complete paths (default: {FINAL_STATE})",
     )
     return parser.parse_args()
 
@@ -704,7 +842,11 @@ def main() -> None:
     args = parse_args()
     df = load_data(args.input)
     edges = build_edges(df)
-    if args.layout == "combined":
+    all_paths = enumerate_paths(edges, args.start_state, args.final_state)
+    if args.layout == "combined-minimum":
+        fig, trace_indices = make_combined_minimum_figure(df, edges)
+        output_file = args.output or DEFAULT_COMBINED_MINIMUM_OUTPUT
+    elif args.layout == "combined":
         fig, trace_indices = make_combined_figure(df, edges)
         output_file = args.output or DEFAULT_COMBINED_OUTPUT
     else:
@@ -712,10 +854,11 @@ def main() -> None:
         output_file = args.output or DEFAULT_OUTPUT
     output_file.parent.mkdir(parents=True, exist_ok=True)
     write_interactive_html(
-        fig, output_file, df, edges, trace_indices, args.layout
+        fig, output_file, df, edges, trace_indices, args.layout, all_paths
     )
     print(f"Loaded {len(df)} states from: {args.input}")
     print(f"Built {len(edges)} subsequent reaction edges per ligand")
+    print(f"Enumerated {len(all_paths)} complete paths")
     print(f"Layout: {args.layout}")
     print(f"Saved interactive figure to: {output_file}")
 
