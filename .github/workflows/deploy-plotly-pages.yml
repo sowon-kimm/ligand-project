@@ -28,8 +28,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout HTML files only
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            figures_corrected/html_files
+          sparse-checkout-cone-mode: false
+          submodules: false
+          fetch-depth: 1
 
       - name: Prepare site
         run: |
