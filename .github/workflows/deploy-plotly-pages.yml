@@ -5,8 +5,9 @@ on:
     branches:
       - main
     paths:
-      - "EnergeticSpanModel/rNets_diagram/plotly/**"
+      - "figures_corrected/html_files/**"
       - ".github/workflows/deploy-plotly-pages.yml"
+
   workflow_dispatch:
 
 permissions:
@@ -23,23 +24,59 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out Plotly files only
-        uses: actions/checkout@v7
-        with:
-          sparse-checkout: EnergeticSpanModel/rNets_diagram/plotly
-          submodules: false
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp figures_corrected/html_files/*.html _site/
+
+          cat > _site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <title>Ligand Project - Plotly Figures</title>
+          </head>
+          <body>
+            <h1>Ligand Project - Interactive Plotly Figures</h1>
+
+            <ul>
+              <li><a href="all_capping_minimum_path_001_corrected.html">All capping minimum path - 001</a></li>
+              <li><a href="all_capping_minimum_path_011_corrected.html">All capping minimum path - 011</a></li>
+
+              <li><a href="all_paths_001_corrected_barrier1p0.html">All paths - 001</a></li>
+              <li><a href="all_paths_011_corrected_barrier1p0.html">All paths - 011</a></li>
+
+              <li><a href="capped_start_path_001_corrected.html">Capped start path - 001</a></li>
+              <li><a href="capped_start_path_011_corrected.html">Capped start path - 011</a></li>
+
+              <li><a href="capping_001_corrected.html">Capping - 001 corrected</a></li>
+              <li><a href="capping_001_uncorrected.html">Capping - 001 uncorrected</a></li>
+
+              <li><a href="capping_011_corrected.html">Capping - 011 corrected</a></li>
+              <li><a href="capping_011_uncorrected.html">Capping - 011 uncorrected</a></li>
+
+              <li><a href="pure_001_corrected.html">Pure - 001</a></li>
+              <li><a href="pure_011_corrected.html">Pure - 011</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@v5
 
-      - name: Upload Plotly site
-        uses: actions/upload-pages-artifact@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: EnergeticSpanModel/rNets_diagram/plotly
+          path: _site
 
       - name: Deploy GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
