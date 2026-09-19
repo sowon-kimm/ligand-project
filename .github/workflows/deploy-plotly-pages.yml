@@ -1,11 +1,11 @@
-name: Deploy Plotly graphs to Pages
+name: Deploy all HTML files to Pages
 
 on:
   push:
     branches:
       - main
     paths:
-      - "figures_corrected/html_files/**"
+      - "**/*.html"
       - ".github/workflows/deploy-plotly-pages.yml"
 
   workflow_dispatch:
@@ -28,11 +28,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout HTML files only
+      - name: Checkout all HTML files only
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            figures_corrected/html_files
+            *.html
           sparse-checkout-cone-mode: false
           submodules: false
           fetch-depth: 1
@@ -40,40 +40,45 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp figures_corrected/html_files/*.html _site/
 
-          cat > _site/index.html <<'EOF'
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="UTF-8">
-            <title>Ligand Project - Plotly Figures</title>
-          </head>
-          <body>
-            <h1>Ligand Project - Interactive Plotly Figures</h1>
+          # 모든 HTML 파일을 원래 directory 구조 그대로 복사
+          find . \
+            -type f \
+            -name "*.html" \
+            -not -path "./_site/*" \
+            -print0 |
+          while IFS= read -r -d '' file; do
+            rel="${file#./}"
+            mkdir -p "_site/$(dirname "$rel")"
+            cp "$file" "_site/$rel"
+          done
 
-            <ul>
-              <li><a href="all_capping_minimum_path_001_corrected.html">All capping minimum path - 001</a></li>
-              <li><a href="all_capping_minimum_path_011_corrected.html">All capping minimum path - 011</a></li>
+          # 모든 HTML 파일을 자동으로 보여주는 index 생성
+          {
+            echo '<!DOCTYPE html>'
+            echo '<html>'
+            echo '<head>'
+            echo '<meta charset="UTF-8">'
+            echo '<title>Ligand Project - HTML Files</title>'
+            echo '</head>'
+            echo '<body>'
+            echo '<h1>Ligand Project - HTML Files</h1>'
+            echo '<ul>'
 
-              <li><a href="all_paths_001_corrected_barrier1p0.html">All paths - 001</a></li>
-              <li><a href="all_paths_011_corrected_barrier1p0.html">All paths - 011</a></li>
+            find _site \
+              -type f \
+              -name "*.html" \
+              ! -name "index.html" \
+              | sort \
+              | while read file; do
+                  rel="${file#_site/}"
+                  echo "<li><a href=\"$rel\">$rel</a></li>"
+                done
 
-              <li><a href="capped_start_path_001_corrected.html">Capped start path - 001</a></li>
-              <li><a href="capped_start_path_011_corrected.html">Capped start path - 011</a></li>
-
-              <li><a href="capping_001_corrected.html">Capping - 001 corrected</a></li>
-              <li><a href="capping_001_uncorrected.html">Capping - 001 uncorrected</a></li>
-
-              <li><a href="capping_011_corrected.html">Capping - 011 corrected</a></li>
-              <li><a href="capping_011_uncorrected.html">Capping - 011 uncorrected</a></li>
-
-              <li><a href="pure_001_corrected.html">Pure - 001</a></li>
-              <li><a href="pure_011_corrected.html">Pure - 011</a></li>
-            </ul>
-          </body>
-          </html>
-          EOF
+            echo '</ul>'
+            echo '</body>'
+            echo '</html>'
+          } > _site/index.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
