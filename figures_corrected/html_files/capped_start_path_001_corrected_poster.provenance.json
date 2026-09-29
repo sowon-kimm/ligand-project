@@ -1,0 +1,9 @@
+{
+  "source": "capped_start_path_001_corrected.html",
+  "source_sha256": "7c3f2e004d152ee9e166fa8c80b3388a89649657d24cb035922565ee5720693b",
+  "paths": 204,
+  "states": 22,
+  "calculation": "Payload and original energy, expandedEntries, energeticSpan, minimumPath copied verbatim.",
+  "background": "Union of all existing expanded paths at their original entry coordinates; identical segments drawn once.",
+  "filter": "No additional filter."
+}

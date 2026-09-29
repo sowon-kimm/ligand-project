@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accessible Growth Pathways on Mn₃O₄ (001)</title>
+<style>
+body { margin: 0; color: #20252b; background: #fff; font-family: Arial, Helvetica, sans-serif; }
+main { width: 1360px; margin: 20px auto; }
+#poster-001 { width: 1360px; height: 680px; }
+.controls { margin: 4px 95px 20px; padding: 22px 0; border-top: 1px solid #e2e8f0; }
+.sliders { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+label { display: grid; grid-template-columns: 125px 1fr 82px; gap: 14px; align-items: center; font-size: 15px; }
+input[type=range] { width: 100%; accent-color: #475569; }
+output { text-align: right; font-variant-numeric: tabular-nums; }
+.exports { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+button { border: 1px solid #cbd5e1; border-radius: 5px; padding: 9px 16px; background: white; color: #334155; font: inherit; cursor: pointer; }
+button:hover { background: #f1f5f9; } button:disabled { opacity: 0.5; cursor: wait; }
+#export-status { font-size: 13px; color: #64748b; }
+@media(max-width: 1360px) { main { margin: 0; } }
+@media print { .controls { display: none; } main { margin: 0; } }
+</style>
+<script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+<script>__PLOTLY_LIBRARY__</script>
+</head>
+<body><main>
+<div id="poster-001"></div>
+<section class="controls" aria-label="Chemical potentials and figure export">
+<div class="sliders">
+<label><span>ΔμMn(OH)<sub>2</sub></span><input aria-label="Mn hydroxide chemical potential" data-role="mu-mn" type="range" min="-4" max="0" step="0.05" value="0"><output data-role="mu-mn-value">0.00 eV</output></label>
+<label><span>ΔμH<sub>2</sub>O</span><input aria-label="Water chemical potential" data-role="mu-h2o" type="range" min="-4" max="0" step="0.05" value="0"><output data-role="mu-h2o-value">0.00 eV</output></label>
+</div>
+<div class="exports"><button data-export="svg">Export SVG</button><button data-export="png">Export PNG · 3×</button><span id="export-status" role="status"></span></div>
+</section>
+</main>
+<script>
+'use strict';
+__MODEL__
+__VISUALIZATION__
+__CONTROLS__
+</script>
+</body></html>
